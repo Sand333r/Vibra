@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vibra • Editar</title>
+  <link rel="stylesheet" href="/static/styles.css"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-blanquito">
+  <header class="flex justify-between items-center py-4 bg-blanquito">
+    <div class="flex justify-start ml-20">
+      <a href="/"><img class="logo" src="/static/LOGO-VIBRA.png"/></a>
+    </div>
+    <nav>
+      <ul class="header neue-bold naranja">
+        <li><a href="/" class="hover:underline">Home</a></li>
+        <div>•</div>
+        <li><a href="/productos" class="hover:underline">Productos</a></li>
+        <div>•</div>
+        <li><a href="/carrito" class="hover:underline">Carrito</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="flex items-center neue text-[#FF6433] ml-20 mt-8 hover:underline">
+    <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M5.3834 11.256L12.0135 17.886L10 19.8995L0.100505 9.99998L10 0.100486L12.0135 2.11394L5.7189 8.4085L18.0538 8.4085L18.0538 11.256L5.3834 11.256Z" fill="#FF6433"/>
+    </svg>
+    <a href="/productos">Atrás</a>
+  </div>
+  <div class="flex flex-col items-center justify-center mb-24">
+    <h2 class="new-bold text-[#FF6433]">Editar disco</h2>
+    <div class="línea-discos bg-[#FF6433]"></div>
+    <div class="w-full max-w-2xl">
+      <form action="{{ url_for('editar', id=disco.id) }}" method="POST" class="mt-16 space-y-6">
+        <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 neue tracking-tight">
+          <div>
+            <label class="block text-sm font-semibold leading-6 text-gray-900">Nombre del álbum</label>
+            <div class="mt-2.5">
+              <input name="nombre" value="{{ disco.nombre }}" placeholder="Nombre del álbum" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold leading-6 text-gray-900">Artista</label>
+            <div class="mt-2.5">
+              <input type="text" value="{{ disco.artista }}" name="artista" placeholder="Nombre del artista" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+          </div>
+          <div class="sm:col-span-2">
+            <label for="email" class="block text-sm font-semibold leading-6 text-gray-900">Precio</label>
+            <div class="mt-2.5">
+              <input type="text" name="precio" value="{{ disco.precio }}" placeholder="Precio (Ej.: 90000)" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+          </div>
+          <div class="sm:col-span-2">
+            <label for="company" class="block text-sm font-semibold leading-6 text-gray-900">URL de la portada</label>
+            <div class="mt-2.5">
+              <input type="text" name="imagen_url" value="{{ disco.imagen_url }}" class="block w-full rounded-md border-0 px-3.5py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-center border-t border-gray-900/10 pt-8">
+          <button type="submit" class="rounded-md neue text-[#F8F1DE] bg-[#FF6433] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:underline">Guardar cambios</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="línea"></div>
+    <p class="neue mb-12">© 2024 • Carlos Sander</p>
+  </footer>
+</body>
+</html>

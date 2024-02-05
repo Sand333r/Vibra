@@ -1,0 +1,256 @@
+html {
+  font-size: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: none;
+}
+
+.new-normal,
+.new-bold {
+  font-size: 5.6rem;
+  font-style: normal;
+  font-family: PP Editorial New, 'Source Sans Pro';
+  letter-spacing: -6px;
+}
+
+.new-normal {
+  font-weight: 300;
+}
+
+.new-bold {
+  font-weight: 400;
+  letter-spacing: -5px;
+}
+
+.neue,
+.neue-bold {
+  font-size: 1.75rem;
+  font-family: PP Neue Montreal, 'Source Sans Pro';
+  letter-spacing: -1px;
+}
+
+.neue-bold {
+  font-weight: 800;
+}
+
+.logo {
+  margin-top: 10px;
+  width: 128px;
+  height: 35px;
+}
+
+.landing {
+  display: flex;
+  justify-content: center;
+  color: #2C2C2E;
+  padding-top: 8.8rem;
+  padding-bottom: 8.8rem;
+}
+
+.naranja {
+  color:#FF6433;
+}
+
+.negro {
+  color:#2C2C2E;
+}
+
+.bg-blanquito {
+  background-color: #F8F1DE;
+}
+
+.underline {
+  text-decoration-line: underline;
+}
+
+.línea {
+  margin-bottom: 3rem;
+  width: 30rem;
+  height: 0.2rem;
+  background-color: #ff6433;
+}
+
+.línea-discos {
+  margin: 0rem 4rem;
+  width: 32rem;
+  height: 0.2rem;
+  background-color: #2c2c2e;
+  flex-shrink: 0;
+}
+
+.header {
+  display: flex;
+  gap: 16px;
+  margin-right: 20px;
+  align-items: center;
+}
+
+/* Landing */
+
+.boton-vibra {
+  color: #FF6433;
+  font-size: 1.2rem;
+  padding: 0.8rem 2rem;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.boton-vibra:hover {
+  text-decoration: underline
+}
+
+.margin {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.horizontal-line {
+  margin: 5px;
+  width: 500px;
+  height: 2px;
+  background-color: #2c2c2e;
+}
+
+.florcita {
+  margin: 20px;
+  width: 50px;
+  height: 50px;
+}
+
+.bienvenida {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #2c2c2e;
+  font-style: italic;
+  padding: 3.5rem;
+  gap: 150px;
+  padding: 5rem;
+}
+
+.parrafo {
+  font-size: 1.295rem;
+  padding-left: 150px;
+  letter-spacing: -0.020em;
+  line-height: 2rem;
+  max-width: 56rem;
+  padding-bottom: 30px;
+}
+
+.vinilo {
+  width: 380px;
+  height: 380px;
+  margin-right: 150px;
+}
+
+.ventas {
+  background-color: #FF6433;
+  color: #F8F1DE; 
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  text-align: center;
+}
+
+.nombres {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.25;
+  margin-bottom: 1.5rem;
+  color: #ff6433;
+  font-family: PP Neue Montreal, 'Source Sans Pro';
+  white-space: nowrap;
+}
+
+.reseña-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10vh 0;
+}
+
+.reseña-item {
+  margin: 0 3rem;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #FF6433;
+  border-radius: 40px;
+  padding: 2.5rem;
+}
+
+.reseña {
+  width: 100%;
+  max-width: 20rem;
+  height: auto;
+  font-size: 1.75rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.1rem;
+}
+
+/* Commerce */
+
+.imagen-commerce {
+  height: 350px;
+  width: 350px;
+  border: 1px solid #FF6433;
+}
+
+.precio {
+  font-size: 1.5rem;
+  border-bottom: 1px solid #1F2937;
+  padding-bottom: 0.125rem;
+  color: #1F2937;
+}
+
+.box-commerce {
+  box-sizing: border-box;
+  padding-bottom: 0.3rem;
+  width: 22rem;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.5rem;
+}
+
+/* Carrito */
+
+.imagen_carrito {
+    width: 12rem;
+    height: 12rem;
+    border: 1px solid #FF6433;
+}
+
+.grilla_productos {
+  margin-top: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.producto {
+  margin-left: 1.5rem;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.check {
+  height: 1.25rem;
+  width: 1.25rem;
+  flex-shrink: 0;
+  color: #34D399;
+}

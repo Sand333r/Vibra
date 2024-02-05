@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibra • Productos</title>
+    <link rel="stylesheet" href="static/styles.css"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-blanquito">
+    <header class="flex justify-between items-center py-4 bg-blanquito">
+        <div class="flex justify-start ml-20">
+            <a href="/"><img class="logo" src="/static/LOGO-VIBRA.png"/></a>
+        </div>
+        <nav>
+            <ul class="header neue-bold naranja">
+                <li><a href="/" class="hover:underline">Home</a></li>
+                <div>•</div>
+                <li><a href="/productos" class="hover:underline">Productos</a></li>
+                <div>•</div>
+                <li><a href="/carrito" class="hover:underline">Carrito</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="flex items-center neue text-[#FF6433] ml-20 mt-8 hover:underline">
+        <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.3834 11.256L12.0135 17.886L10 19.8995L0.100505 9.99998L10 0.100486L12.0135 2.11394L5.7189 8.4085L18.0538 8.4085L18.0538 11.256L5.3834 11.256Z" fill="#FF6433"/>
+        </svg>
+        <a href="/">Atrás</a>
+    </div>
+    <div class="flex items-center ml-20 mr-64 justify-between">
+        <div class="new-bold naranja">
+            Discos
+        </div>
+        <div class="línea-discos"></div>
+        <div class="flex neue-bold space-x-4 naranja neue whitespace-nowrap">
+            <a class="hover:underline" href="/disco">Añadir disco</a>
+            <div>•</div>
+            <a class="hover:underline" href="/carrito">Carrito</a>
+        </div>
+    </div>
+    <div class="grid grid-cols-3 gap-4 ml-20">
+        {% for disco in discos %}
+            <div class="naranja neue box-commerce">
+                <img class="imagen-commerce" src="{{ disco.imagen_url }}" alt="Disco">
+                {{ disco.artista }} • <span class="neue-bold">{{ disco.nombre }}</span>
+                <div class="precio">Gs. {{ disco.precio|format_price_pt }}</div>
+                <div><a class="hover:underline" href="{{ url_for('add_carrito', id=disco.id) }}">Añadir al carrito</a></div>
+                <div>
+                    <a class="text-xl hover:underline" href="{{ url_for('editar', id=disco.id) }}">Editar</a>
+                    •
+                    <a class="text-xl hover:underline" href="{{ url_for('eliminar', id=disco.id) }}">Eliminar</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="neue flex justify-center naranja mt-5">* Las otras categorías (vinilos, casettes y merch) están en progreso. <3</div>
+    <footer class="footer">
+        <div class="línea"></div>
+        <p class="neue mb-12">© 2024 • Carlos Sander</p>
+    </footer>
+</body>
+</html>

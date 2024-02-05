@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibra • Carrito</title>
+    <link rel="stylesheet" href="static/styles.css"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-blanquito">
+  <header class="flex justify-between items-center py-4 bg-blanquito">
+    <div class="flex justify-start ml-20">
+      <a href="/"><img class="logo" src="/static/LOGO-VIBRA.png"/></a>
+    </div>
+    <nav>
+      <ul class="header neue-bold naranja">
+        <li><a href="/" class="hover:underline">Home</a></li>
+        <div>•</div>
+        <li><a href="/productos" class="hover:underline">Productos</a></li>
+        <div>•</div>
+        <li><a href="/carrito" class="hover:underline">Carrito</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div>
+    <div class="flex items-center ml-20 mt-8 neue naranja hover:underline">
+      <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.3834 11.256L12.0135 17.886L10 19.8995L0.100505 9.99998L10 0.100486L12.0135 2.11394L5.7189 8.4085L18.0538 8.4085L18.0538 11.256L5.3834 11.256Z" fill="#FF6433"/>
+      </svg>
+      <a href="/productos">Atrás</a>
+    </div>
+    <div class="flex items-center">
+      <h1 class="new-bold naranja ml-20">Carrito</h1>
+    </div>
+    <div class="ml-20 mr-20">
+      <form class="grilla_productos">
+        <section class="lg:col-span-7">
+          {% for item in carrito %}
+          <ul role="list" class="neue tracking-normal">
+            <li class="flex py-6 sm:py-10">
+              <div class="flex-shrink-0">
+                <img src="{{ item.imagen_url }}" alt="Álbum." class="imagen_carrito">
+              </div>
+              <div class="producto">
+                <div class="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
+                  <div>
+                    <div class="flex justify-between">
+                      <h3 class="text-sm">
+                        <a href="#" class="font-medium negro">{{ item.nombre }}</a>
+                      </h3>
+                    </div>
+                    <div class="mt-1 flex text-sm">
+                      <p class="text-gray-500">{{ item.artista }}</p>
+                    </div>
+                    <p class="mt-1 text-sm font-medium negro">Gs. {{ item.precio|format_price_pt }}</p>
+                    <p class="mt-1 text-sm negro">Cantidad: {{ item.cantidad }}</p>
+                  </div>
+                  <div class="mt-4 sm:mt-0 sm:pr-9">
+                    <div class="absolute right-0 top-0">
+                      <a href="{{ url_for('eliminar_del_carrito', id=item['id']) }}">
+                        <button type="button" class="-m-2 inline-flex p-2 text-gray-400 hover:text-gray-500">
+                          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+                          </svg>
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-4 flex space-x-2 text-sm negro">
+                  <svg class="check" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                  </svg>
+                  <span>Disponible</span>
+                </p>
+              </div>
+            </li>
+          </ul>
+          {% else %}
+            <p class="neue ml-20">Tu carrito está vacío.</p>
+          {% endfor %}
+        </section>
+        <section class="mt-16 rounded-lg px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8">
+          <h2 class="text-lg neue tracking-normal font-medium negro">Resumen de tu pedido</h2>
+          <dl class="mt-6 space-y-4 neue tracking-normal">
+            <div class="flex items-center justify-between">
+              <dt class="text-sm text-gray-600">Productos</dt>
+              <dd class="text-sm font-medium negro">{{ 'Gs. {:,.0f}'.format(total) | replace(",", ".") }}</dd>
+            </div>
+            <div class="flex items-center justify-between border-t border-gray-200 pt-4">
+              <dt class="flex items-center text-sm text-gray-600">
+                <span>Envío</span>
+              </dt>
+              <dd class="text-sm font-medium negro">Gratuito</dd>
+            </div>
+            <div class="flex items-center justify-between border-t border-gray-200 pt-4">
+              <dt class="text-base font-medium negro">Total</dt>
+              <dd class="text-base font-medium negro">{{ 'Gs. {:,.0f}'.format(total) | replace(",", ".") }}</dd>
+            </div>
+          </dl>          
+          <a href="/compra" class="mt-6 inline-block w-full neue bg-[#FF6433] rounded-md px-4 py-3 text-base font-medium text-white text-center">
+            Confirmar compra
+          </a>
+        </section>
+        
+      </form>
+    </div>
+  </div>
+  
+  <footer class="footer">
+    <div class="línea"></div>
+    <p class="neue mb-12">© 2024 • Carlos Sander</p>
+  </footer>
+</body>
+</html>
